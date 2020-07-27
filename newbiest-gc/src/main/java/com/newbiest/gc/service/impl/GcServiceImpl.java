@@ -970,8 +970,8 @@ public class GcServiceImpl implements GcService {
                         break;
                     }
                 }
-                BigDecimal handledQty = documentLine.getHandledQty().add((documentLine.getUnHandledQty().subtract(unhandedQty)));
-                documentLine.setHandledQty(handledQty);
+                BigDecimal handledQty = (documentLine.getUnHandledQty().subtract(unhandedQty));
+                documentLine.setHandledQty(documentLine.getHandledQty().add(handledQty));
                 documentLine.setUnHandledQty(unhandedQty);
                 documentLineRepository.save(documentLine);
 
@@ -1977,7 +1977,7 @@ public class GcServiceImpl implements GcService {
                         erpMoa.setCMemo("EMPTY");
                         erpMoa.setMaterialBonded(mesPackedLotRelation.getMaterialBonded());
                         erpMoa.setMaterialCode(mesPackedLotRelation.getMaterialCode());
-                        erpMoa.setMaterialQty(mesPackedLotRelation.getMaterialQty());
+                        erpMoa.setMaterialQty(mesPackedLot.getWaferQty());
                         erpMoa.setMaterialGrade(mesPackedLotRelation.getMaterialGrade());
                         erpMoa.setMaterialVersion(mesPackedLotRelation.getMaterialVersion());
 
