@@ -89,4 +89,8 @@ public class GcExceptions {
 
     //MSCM
     public static final String MSCM_ERROR = "gc.mscm_error";
+
+    //RW相关
+    public static final String TAPA_MATERIAL_CODE_IS_ERROR = "gc.tape_material_code_is_error";
+    public static final String BLADE_MATERIAL_CODE_IS_ERROR = "gc.Blade_material_code_is_error";
 }
